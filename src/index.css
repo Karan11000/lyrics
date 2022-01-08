@@ -1,0 +1,17 @@
+ body{
+    font-family: cursive;
+    /* text-align: center; */
+} 
+.active_class{
+    color: red;
+    border-bottom: 2px solid blue;
+}
+.nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 80px;
+    background-color: black;
+    align-items: center;
+    text-decoration: none;
+}
