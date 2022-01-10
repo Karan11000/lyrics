@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react"
+import React, { useCallback, useContext, useEffect, useState } from "react"
 import {Context} from "../../Context"
 import alanBtn from "@alan-ai/alan-sdk-web";
 
@@ -12,8 +12,26 @@ const mlr = {
 }
 
 const [alanInstance, setAlanInstance] = useState();
+
+
+const update = useCallback(({detail:speaktrack_list})=>{
+
+  newState({tracklist: speaktrack_list, heading:"Welcome to hell"})
+  // alanInstance.play(`hey`);
+}, [alanInstance]);
+
+
+useEffect(()=>{
+  window.addEventListener("Addplaylist", update);
+    return(()=>{
+      window.removeEventListener("Addplaylist", update)
+    });
+}, [update]);
+
+
 useEffect(() => {
   if (alanInstance != null) return;
+
   setAlanInstance(
     alanBtn({
       bottom: "2vh",
@@ -21,17 +39,15 @@ useEffect(() => {
       key: "50c8e7121d7b9b5d8cd1f7d71e60ce922e956eca572e1d8b807a3e2338fdd0dc/stage",
       onCommand: ({ command, speaktrack_list }) => {
         // console.log("Karan", command);
-        // console.log("akslakkkkkkkkkkkkkkkkkkkkkkkkssssssssssssssssssssssssssssssssssssssssssssss")
-        // getData(command);
-        console.log(command);
-
-        if(command=="Addplaylist"){
-          newState({tracklist:speaktrack_list, heading:"Search Results"});
-        }
+        // console.log(command);
+        window.dispatchEvent(new CustomEvent(command, {detail:speaktrack_list}));
+        // if(command=="Addplaylist"){
+        //   newState({tracklist:speaktrack_list, heading:"Search Results"});
+        // }
       },
     })
   );
-}, [alanInstance]);
+}, []);
 
 useEffect(()=>{
     axios.get(
