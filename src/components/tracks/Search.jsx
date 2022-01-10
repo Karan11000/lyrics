@@ -15,9 +15,7 @@ const [alanInstance, setAlanInstance] = useState();
 
 
 const update = useCallback(({detail:speaktrack_list})=>{
-
-  newState({tracklist: speaktrack_list, heading:"Welcome to hell"})
-  // alanInstance.play(`hey`);
+  newState({tracklist: speaktrack_list, heading:"Welcome to hell"});
 }, [alanInstance]);
 
 
