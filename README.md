@@ -1,4 +1,4 @@
-#Lyrics Search App
+# Lyrics Search App
 
 This site will provide the lyrics of your songs. I have made this site using React. This site is fetching data from the api musicmatch and I have also using Alan AI Api for adding voice fearures in it. To search the lyrics of the particular song speak Search the lyrics of {Song name}.
 
