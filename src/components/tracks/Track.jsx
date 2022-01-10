@@ -20,12 +20,12 @@ const Track = props => {
             </strong>
             : {track.album_name}
           </p>
-          <Link
-            to={`lyrics/track/${track.track_id}`}
+          <a
+            href={`lyrics/track/${track.track_id}`}
             className="btn btn-dark btn-block"
           >
             <i className="fas fa-chevron-right" /> View Lyrics
-          </Link>
+          </a>
         </div>
       </div>
     </div>
