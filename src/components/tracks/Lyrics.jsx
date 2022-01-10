@@ -41,10 +41,9 @@ const Lyrics = props => {
   } else {
     return (
       <>
-      {/* {console.log(alanInstance)}; */}
-        <Link to="/" className="btn btn-dark btn-sm mb-4" style={{marginLeft:"0.2 rem"}}>
+        <a href="/" className="btn btn-dark btn-sm mb-4" style={{marginLeft:"0.2 rem"}}>
           Go Back
-        </Link>
+        </a>
         <div className="card">
           <h5 className="card-header">
             {track.track.track_name} by{" "}
