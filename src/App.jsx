@@ -15,6 +15,7 @@ const App = () => {
         <Switch>
         <Route exact path="/" component={Index}></Route>
         <Route exact path="/lyrics/track/:id" component={Lyrics} ></Route>
+        <Route path="*" component={Index} />
         </Switch>
       </>
     </BrowserRouter>
