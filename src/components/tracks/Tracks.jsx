@@ -16,7 +16,11 @@ const row = {
 }
 const Tracks = ()=>{
     const [state] = useContext(Context)
+    // console.log("MAin hoon", state);
     const {tracklist, heading} = state;
+    if(tracklist==null){
+      return(<Spinner />);
+    }
     if (tracklist === undefined || tracklist.length === 0) {
       return(<Spinner />);
     }else{
