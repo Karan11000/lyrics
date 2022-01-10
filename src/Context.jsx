@@ -12,14 +12,6 @@ const ContextHandler = ({children}) =>{
     }
     const [state, newState] = useState(initialData);
     useEffect(()=>{
-        // async function getData(){
-        //     const res = await axios.get(`http://api.musixmatch.com/ws/1.1/chart.tracks.get?page=1&page_size=10&country=us&f_has_lyrics=1&apikey=073358cbad4539413d607560a16aa80b`)
-        //     newState({
-        //         tracklist:res.data.message.body.track_list,
-        //         heading:"Top 10 Tracks"
-        //     });
-        // }
-        // getData();
             axios.get(`https://cors-access-allow.herokuapp.com/http://api.musixmatch.com/ws/1.1/chart.tracks.get?page=1&page_size=10&country=us&f_has_lyrics=1&apikey=073358cbad4539413d607560a16aa80b`)
             .then((res)=>{
                 console.log("hello", res.data);
