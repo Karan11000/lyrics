@@ -11,6 +11,7 @@ const ContextHandler = ({children}) =>{
         heading:""
     }
     const [state, newState] = useState(initialData);
+    const [alanInstance, setAlanInstance] = useState();
     useEffect(()=>{
             axios.get(`https://cors-access-allow.herokuapp.com/http://api.musixmatch.com/ws/1.1/chart.tracks.get?page=1&page_size=10&country=us&f_has_lyrics=1&apikey=073358cbad4539413d607560a16aa80b`)
             .then((res)=>{
@@ -24,7 +25,7 @@ const ContextHandler = ({children}) =>{
     , [])
     console.log(state);
     return(
-             <Context.Provider value={[state, newState]}>{children}</Context.Provider> 
+             <Context.Provider value={[state, newState, alanInstance, setAlanInstance]}>{children}</Context.Provider> 
     );
     
 }
