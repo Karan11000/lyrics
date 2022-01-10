@@ -4,18 +4,16 @@ import {Context} from "../../Context"
 import alanBtn from "@alan-ai/alan-sdk-web";
 
 const Search = ()=>{
-const [state, newState] = useContext(Context);
+const [state, newState, alanInstance, setAlanInstance] = useContext(Context);
 const [text, newText] = useState("");
 const [submitText, newSubmitText] = useState("");
 const mlr = {
   margin:"0px 1rem"
 }
 
-const [alanInstance, setAlanInstance] = useState();
-
 
 const update = useCallback(({detail:speaktrack_list})=>{
-  newState({tracklist: speaktrack_list, heading:"Welcome to hell"});
+    newState({tracklist: speaktrack_list, heading:"Search Result"});
 }, [alanInstance]);
 
 
