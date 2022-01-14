@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useState } from "react"
 import axios from "axios";
-import { getDefaultNormalizer } from "@testing-library/react";
 
 const Context = createContext();
 
